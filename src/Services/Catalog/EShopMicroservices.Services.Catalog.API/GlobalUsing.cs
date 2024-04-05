@@ -10,3 +10,5 @@ global using EShopMicroservices.BuildingBlocks.Exceptions.Handlers;
 global using EShopMicroservices.Services.Catalog.API.Models;
 global using EShopMicroservices.Services.Catalog.API.Exceptions;
 global using EShopMicroservices.Services.Catalog.API.Data;
+global using HealthChecks.UI.Client;
+global using Microsoft.AspNetCore.Diagnostics.HealthChecks;
