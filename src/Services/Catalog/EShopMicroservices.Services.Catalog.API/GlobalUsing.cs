@@ -2,9 +2,11 @@
 global using Mapster;
 global using MediatR;
 global using Marten;
+global using Marten.Pagination;
 global using FluentValidation;
 global using EShopMicroservices.BuildingBlocks.CQRS;
 global using EShopMicroservices.BuildingBlocks.Behaviors;
 global using EShopMicroservices.BuildingBlocks.Exceptions.Handlers;
 global using EShopMicroservices.Services.Catalog.API.Models;
 global using EShopMicroservices.Services.Catalog.API.Exceptions;
+global using EShopMicroservices.Services.Catalog.API.Data;
