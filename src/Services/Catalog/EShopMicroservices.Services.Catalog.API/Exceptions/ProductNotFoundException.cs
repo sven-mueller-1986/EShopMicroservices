@@ -1,8 +1,10 @@
-﻿namespace EShopMicroservices.Services.Catalog.API.Exceptions;
+﻿using EShopMicroservices.BuildingBlocks.Exceptions;
 
-public class ProductNotFoundException : Exception
+namespace EShopMicroservices.Services.Catalog.API.Exceptions;
+
+public class ProductNotFoundException : NotFoundException
 {
-    public ProductNotFoundException(Guid id) : base($"Product with id {id} was not found.")
+    public ProductNotFoundException(Guid id) : base(nameof(Product), id)
     { }
 }
 
