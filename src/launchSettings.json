@@ -2,7 +2,7 @@
   "profiles": {
     "Docker Compose": {
       "commandName": "DockerCompose",
-      "commandVersion": "1.0"
+      "commandVersion": "2.0"
       //"serviceActions": {
       //  //"eshopmicroservices.services.catalog.api": "StartDebugging"
       //}

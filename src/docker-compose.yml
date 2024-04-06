@@ -3,6 +3,7 @@ version: '3.9'
 name: e-shop-microservices
 
 services:
+ #Catalog
  CatalogDB:
   image: postgres
 
@@ -12,6 +13,23 @@ services:
    context: .
    dockerfile: Services/Catalog/EShopMicroservices.Services.Catalog.API/Dockerfile
 
+ #Basket
+ BasketDB:
+  image: postgres
+
+ BasketAPI:
+  image: ${DOCKER_REGISTRY-}basketapi
+  build:
+    context: .
+    dockerfile: Services/Basket/EShopMicroservices.Services.Basket.API/Dockerfile
+
+ #Shared
+ RedisCache:
+  image: redis
+
+
 volumes:
  postgres_catalog:
+ postgres_basket:
+
 

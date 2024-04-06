@@ -7,13 +7,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{2D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{97291B37-D888-4C32-B0B6-260E9DDCCF67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopMicroservices.Services.Catalog.API", "Services\Catalog\EShopMicroservices.Services.Catalog.API\EShopMicroservices.Services.Catalog.API.csproj", "{02E76A6F-0391-41CC-BA02-A9B7969D3182}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShopMicroservices.Services.Catalog.API", "Services\Catalog\EShopMicroservices.Services.Catalog.API\EShopMicroservices.Services.Catalog.API.csproj", "{02E76A6F-0391-41CC-BA02-A9B7969D3182}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{1C716F4C-B813-4BD0-9FD3-EBEE3C3D6ABA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopMicroservices.BuildingBlocks", "BuildingBlocks\EShopMicroservices.BuildingBlocks\EShopMicroservices.BuildingBlocks.csproj", "{41CF27D1-5122-4F03-B5EC-DB9518083F2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShopMicroservices.BuildingBlocks", "BuildingBlocks\EShopMicroservices.BuildingBlocks\EShopMicroservices.BuildingBlocks.csproj", "{41CF27D1-5122-4F03-B5EC-DB9518083F2F}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0BED5D6F-A6A8-4268-A494-C345FEE1A7F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{5A81BBF1-74B0-4AB3-968F-3521A31ED9CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopMicroservices.Services.Basket.API", "Services\Basket\EShopMicroservices.Services.Basket.API\EShopMicroservices.Services.Basket.API.csproj", "{67CCEDFE-0914-4A11-9946-2026B65ACD09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,10 @@ Global
 		{0BED5D6F-A6A8-4268-A494-C345FEE1A7F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BED5D6F-A6A8-4268-A494-C345FEE1A7F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BED5D6F-A6A8-4268-A494-C345FEE1A7F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67CCEDFE-0914-4A11-9946-2026B65ACD09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67CCEDFE-0914-4A11-9946-2026B65ACD09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67CCEDFE-0914-4A11-9946-2026B65ACD09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67CCEDFE-0914-4A11-9946-2026B65ACD09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +49,8 @@ Global
 		{97291B37-D888-4C32-B0B6-260E9DDCCF67} = {2D3161E4-8D78-40ED-B15D-0CA746FFFFB5}
 		{02E76A6F-0391-41CC-BA02-A9B7969D3182} = {97291B37-D888-4C32-B0B6-260E9DDCCF67}
 		{41CF27D1-5122-4F03-B5EC-DB9518083F2F} = {1C716F4C-B813-4BD0-9FD3-EBEE3C3D6ABA}
+		{5A81BBF1-74B0-4AB3-968F-3521A31ED9CD} = {2D3161E4-8D78-40ED-B15D-0CA746FFFFB5}
+		{67CCEDFE-0914-4A11-9946-2026B65ACD09} = {5A81BBF1-74B0-4AB3-968F-3521A31ED9CD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DAFDB4D8-3DF7-422E-8B26-87CE27E82AED}
