@@ -23,13 +23,24 @@ services:
     context: .
     dockerfile: Services/Basket/EShopMicroservices.Services.Basket.API/Dockerfile
 
+ #Ordering
+ OrderDB:
+  image: mcr.microsoft.com/mssql/server
+
+ #Discount
+ DiscountgRPC:
+  image: ${DOCKER_REGISTRY-}discountgrpc
+  build:
+    context: .
+    dockerfile: Services/Discount/EShopMicroservices.Services.Discount.Grpc/Dockerfile
+
  #Shared
  RedisCache:
   image: redis
-
-
+  
 volumes:
  postgres_catalog:
  postgres_basket:
+
 
 

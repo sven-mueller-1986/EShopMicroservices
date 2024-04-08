@@ -1,0 +1,1 @@
+Add-Migration {name} -OutputDir Data/Migrations -Project EShopMicroservices.Services.Ordering.Infrastructure -StartupProject EShopMicroservices.Services.Ordering.API

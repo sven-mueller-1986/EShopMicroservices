@@ -17,7 +17,7 @@ services:
             - postgres_catalog:/var/lib/postgresql/data/ 
 
     CatalogAPI:
-        container_name: CatalogAPI
+        container_name: Catalog.API
         environment:
             - ASPNETCORE_ENVIRONMENT=Development
             - ASPNETCORE_HTTP_PORTS=8080
@@ -46,19 +46,46 @@ services:
             - postgres_basket:/var/lib/postgresql/data/
 
     BasketAPI:
-        container_name: BasketAPI
+        container_name: Basket.API
         environment:
           - ASPNETCORE_ENVIRONMENT=Development
           - ASPNETCORE_HTTP_PORTS=8080
           - ASPNETCORE_HTTPS_PORTS=8081
           - ConnectionStrings__Database=Server=BasketDB;Port=5432;Database=BasketDB;User Id=postgres;Password=postgres;Include Error Detail=true
           - ConnectionStrings__Redis=RedisCache:6379
+          - GrpcSettings__DiscountUrl=https://DiscountgRPC:8081
         depends_on:
             - BasketDB
             - RedisCache
+            - DiscountgRPC
         ports:
           - "6001:8080"
           - "6061:8081"
+        volumes:
+          - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+          - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+
+    #Ordering Microservice
+    OrderDB:
+        container_name: OrderDB
+        environment:
+            - ACCEPT_EULA=Y
+            - SA_PASSWORD=Test12345
+        restart: always
+        ports:
+            - "1433:1433"
+
+    #Discount Microservice
+    DiscountgRPC:
+        container_name: Discount.gRPC
+        environment:
+          - ASPNETCORE_ENVIRONMENT=Development
+          - ASPNETCORE_HTTP_PORTS=8080
+          - ASPNETCORE_HTTPS_PORTS=8081
+          - ConnectionStrings__Database=Data Source=DiscountDB
+        ports:
+          - "6002:8080"
+          - "6062:8081"
         volumes:
           - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
           - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
@@ -69,5 +96,4 @@ services:
         restart: always
         ports:
             - "6379:6379"
-
-  
+ 
