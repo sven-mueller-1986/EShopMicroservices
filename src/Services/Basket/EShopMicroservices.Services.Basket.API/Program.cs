@@ -1,3 +1,5 @@
+using Discount.Grpc;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to DI.
@@ -5,8 +7,24 @@ var assembly = typeof(Program).Assembly;
 
 // Services
 builder.Services.AddScoped<IBasketRepository, BasketRepository>();
-// Decorate IBasketRepository with Scrutor Framework
+    // Decorate IBasketRepository with Scrutor Framework
 builder.Services.Decorate<IBasketRepository, CachedBasketRepository>();
+
+// gRPC Services
+builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(options =>
+{
+    options.Address = new Uri(builder.Configuration["GrpcSettings:DiscountUrl"]!);
+})
+    // Only for local development
+.ConfigurePrimaryHttpMessageHandler(() =>
+{
+    var handler = new HttpClientHandler
+    {
+        ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+    };
+
+    return handler;
+});
 
 // Endpoint Mapping
 // Register ICarterModule implementations
