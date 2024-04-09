@@ -1,0 +1,15 @@
+﻿global using MediatR;
+global using FluentValidation;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Logging;
+global using EShopMicroservices.BuildingBlocks.Behaviors;
+global using EShopMicroservices.BuildingBlocks.CQRS;
+global using EShopMicroservices.BuildingBlocks.Pagination;
+global using EShopMicroservices.Services.Ordering.Application.Extensions;
+global using EShopMicroservices.Services.Ordering.Application.Data;
+global using EShopMicroservices.Services.Ordering.Application.Dtos;
+global using EShopMicroservices.Services.Ordering.Application.Exceptions;
+global using EShopMicroservices.Services.Ordering.Domain.Enums;
+global using EShopMicroservices.Services.Ordering.Domain.Events;
+global using EShopMicroservices.Services.Ordering.Domain.Models;
+global using EShopMicroservices.Services.Ordering.Domain.ValueObjects;

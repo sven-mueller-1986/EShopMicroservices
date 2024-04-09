@@ -11,4 +11,12 @@
     <ProjectReference Include="..\EShopMicroservices.Services.Ordering.Domain\EShopMicroservices.Services.Ordering.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Orders\EventHandlers\IntegrationEvents\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
+  </ItemGroup>
+
 </Project>

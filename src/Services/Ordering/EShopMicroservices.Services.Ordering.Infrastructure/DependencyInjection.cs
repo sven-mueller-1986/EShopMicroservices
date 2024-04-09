@@ -1,4 +1,5 @@
-﻿using EShopMicroservices.Services.Ordering.Infrastructure.Data;
+﻿using EShopMicroservices.Services.Ordering.Application.Data;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,9 +9,17 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
+        services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventInterceptor>();
+        services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+
         var connectionString = configuration.GetConnectionString("Database");
 
-        services.AddSqlServer<ApplicationDbContext>(connectionString);
+        services.AddDbContext<ApplicationDbContext>((provider, options) =>
+        {
+            options.AddInterceptors(provider.GetServices<ISaveChangesInterceptor>());
+            options.UseSqlServer(connectionString);
+        });
 
         return services;
     }
