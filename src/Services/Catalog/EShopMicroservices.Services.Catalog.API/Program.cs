@@ -1,3 +1,5 @@
+using EShopMicroservices.BuildingBlocks.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to DI.
@@ -5,11 +7,7 @@ var assembly = typeof(Program).Assembly;
 
 // Endpoint Mapping
 // Register ICarterModule implementations
-builder.Services.AddCarter(null, config => 
-{
-    var modules = assembly.GetTypes().Where(t => t.IsAssignableTo(typeof(ICarterModule))).ToArray();
-    config.WithModules(modules);
-});
+builder.Services.AddCarterFromAssembly(assembly);
 
 // Fluent Validation -> registration of Validators
 builder.Services.AddValidatorsFromAssembly(assembly);

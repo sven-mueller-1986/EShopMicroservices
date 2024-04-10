@@ -1,4 +1,5 @@
 using Discount.Grpc;
+using EShopMicroservices.BuildingBlocks.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,11 +29,7 @@ builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(
 
 // Endpoint Mapping
 // Register ICarterModule implementations
-builder.Services.AddCarter(null, config =>
-{
-    var modules = assembly.GetTypes().Where(t => t.IsAssignableTo(typeof(ICarterModule))).ToArray();
-    config.WithModules(modules);
-});
+builder.Services.AddCarterFromAssembly(assembly);
 
 // Fluent Validation
 // Register custom Validators
