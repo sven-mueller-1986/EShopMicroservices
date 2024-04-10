@@ -1,5 +1,6 @@
 using Discount.Grpc;
 using EShopMicroservices.BuildingBlocks.Extensions;
+using EShopMicroservices.BuildingBlocks.Messaging.MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,6 +57,9 @@ builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = builder.Configuration.GetConnectionString("Redis");
 });
+
+// Message Broker registration for async service communication
+builder.Services.AddMessageBroker(builder.Configuration);
 
 // Global exception handling with IExceptionHandler implementation
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();

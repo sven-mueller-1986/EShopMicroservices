@@ -27,6 +27,12 @@ services:
  OrderDB:
   image: mcr.microsoft.com/mssql/server
 
+ OrderAPI:
+  image: ${DOCKER_REGISTRY-}orderapi
+  build:
+   context: .
+   dockerfile: Services/Ordering/EShopMicroservices.Services.Ordering.API/Dockerfile
+
  #Discount
  DiscountgRPC:
   image: ${DOCKER_REGISTRY-}discountgrpc
@@ -37,10 +43,15 @@ services:
  #Shared
  RedisCache:
   image: redis
-  
+
+ MessageBroker:
+  image: rabbitmq:management
+
+
 volumes:
  postgres_catalog:
  postgres_basket:
+
 
 
 

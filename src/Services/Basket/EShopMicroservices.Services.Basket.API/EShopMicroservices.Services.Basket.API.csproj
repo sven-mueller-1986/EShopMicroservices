@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\EShopMicroservices.BuildingBlocks.Messaging\EShopMicroservices.BuildingBlocks.Messaging.csproj" />
     <ProjectReference Include="..\..\..\BuildingBlocks\EShopMicroservices.BuildingBlocks\EShopMicroservices.BuildingBlocks.csproj" />
   </ItemGroup>
 

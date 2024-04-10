@@ -25,13 +25,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShopMicroservices.Services
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ordering", "Ordering", "{FC2180A0-7131-4127-8B9A-4A853C2E69C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopMicroservices.Services.Ordering.API", "Services\Ordering\EShopMicroservices.Services.Ordering.API\EShopMicroservices.Services.Ordering.API.csproj", "{7DEB3859-F3C3-4414-9E7A-1DBD8466FB9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShopMicroservices.Services.Ordering.API", "Services\Ordering\EShopMicroservices.Services.Ordering.API\EShopMicroservices.Services.Ordering.API.csproj", "{7DEB3859-F3C3-4414-9E7A-1DBD8466FB9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopMicroservices.Services.Ordering.Domain", "Services\Ordering\EShopMicroservices.Services.Ordering.Domain\EShopMicroservices.Services.Ordering.Domain.csproj", "{8A7BC607-839F-432D-972C-24C275ECC14D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShopMicroservices.Services.Ordering.Domain", "Services\Ordering\EShopMicroservices.Services.Ordering.Domain\EShopMicroservices.Services.Ordering.Domain.csproj", "{8A7BC607-839F-432D-972C-24C275ECC14D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopMicroservices.Services.Ordering.Application", "Services\Ordering\EShopMicroservices.Services.Ordering.Application\EShopMicroservices.Services.Ordering.Application.csproj", "{78BC6E6E-817E-4DF2-905D-376266D95CC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShopMicroservices.Services.Ordering.Application", "Services\Ordering\EShopMicroservices.Services.Ordering.Application\EShopMicroservices.Services.Ordering.Application.csproj", "{78BC6E6E-817E-4DF2-905D-376266D95CC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopMicroservices.Services.Ordering.Infrastructure", "Services\Ordering\EShopMicroservices.Services.Ordering.Infrastructure\EShopMicroservices.Services.Ordering.Infrastructure.csproj", "{B6C4875C-CAEE-496B-8F0E-165EEB40A4BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShopMicroservices.Services.Ordering.Infrastructure", "Services\Ordering\EShopMicroservices.Services.Ordering.Infrastructure\EShopMicroservices.Services.Ordering.Infrastructure.csproj", "{B6C4875C-CAEE-496B-8F0E-165EEB40A4BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopMicroservices.BuildingBlocks.Messaging", "BuildingBlocks\EShopMicroservices.BuildingBlocks.Messaging\EShopMicroservices.BuildingBlocks.Messaging.csproj", "{0ACA60B5-F0B9-41F7-A26C-C485725A03A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{B6C4875C-CAEE-496B-8F0E-165EEB40A4BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6C4875C-CAEE-496B-8F0E-165EEB40A4BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6C4875C-CAEE-496B-8F0E-165EEB40A4BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ACA60B5-F0B9-41F7-A26C-C485725A03A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ACA60B5-F0B9-41F7-A26C-C485725A03A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ACA60B5-F0B9-41F7-A26C-C485725A03A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ACA60B5-F0B9-41F7-A26C-C485725A03A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +98,7 @@ Global
 		{8A7BC607-839F-432D-972C-24C275ECC14D} = {FC2180A0-7131-4127-8B9A-4A853C2E69C1}
 		{78BC6E6E-817E-4DF2-905D-376266D95CC3} = {FC2180A0-7131-4127-8B9A-4A853C2E69C1}
 		{B6C4875C-CAEE-496B-8F0E-165EEB40A4BC} = {FC2180A0-7131-4127-8B9A-4A853C2E69C1}
+		{0ACA60B5-F0B9-41F7-A26C-C485725A03A4} = {1C716F4C-B813-4BD0-9FD3-EBEE3C3D6ABA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DAFDB4D8-3DF7-422E-8B26-87CE27E82AED}
