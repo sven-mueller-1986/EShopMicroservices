@@ -40,6 +40,13 @@ services:
     context: .
     dockerfile: Services/Discount/EShopMicroservices.Services.Discount.Grpc/Dockerfile
 
+ #ApiGateways
+ ApiGatewayWeb:
+    image: ${DOCKER_REGISTRY-}apigatewayweb
+    build:
+      context: .
+      dockerfile: ApiGateways/EShopMicroservices.ApiGateways.Web/Dockerfile
+
  #Shared
  RedisCache:
   image: redis
@@ -51,6 +58,7 @@ services:
 volumes:
  postgres_catalog:
  postgres_basket:
+
 
 
 

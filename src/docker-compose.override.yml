@@ -119,6 +119,24 @@ services:
           - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
           - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
 
+    #ApiGateways
+    ApiGatewayWeb:
+        container_name: ApiGateway.Web
+        environment:
+          - ASPNETCORE_ENVIRONMENT=Development
+          - ASPNETCORE_HTTP_PORTS=8080
+          - ASPNETCORE_HTTPS_PORTS=8081
+        depends_on:
+            - CatalogAPI 
+            - BasketAPI 
+            - OrderAPI
+        ports:
+          - "6004:8080"
+          - "6064:8081"
+        volumes:
+          - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+          - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro    
+          
     #Shared
     RedisCache:
         container_name: RedisCache
@@ -136,5 +154,3 @@ services:
         ports:
             - "5672:5672"
             - "15672:15672"
-    
-  
