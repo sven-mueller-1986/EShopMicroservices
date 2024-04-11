@@ -39,6 +39,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopMicroservices.ApiGateways.Web", "ApiGateways\EShopMicroservices.ApiGateways.Web\EShopMicroservices.ApiGateways.Web.csproj", "{79330A9A-537B-4405-B267-0B6949DEEC1E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApps", "WebApps", "{3A11B6B2-8668-4733-BC26-EB320317A5DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopMicroservices.WebApps.Web", "WebApps\EShopMicroservices.WebApps.Web\EShopMicroservices.WebApps.Web.csproj", "{F844FA9D-2D04-49EF-B384-4542C265BCCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +93,10 @@ Global
 		{79330A9A-537B-4405-B267-0B6949DEEC1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79330A9A-537B-4405-B267-0B6949DEEC1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79330A9A-537B-4405-B267-0B6949DEEC1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F844FA9D-2D04-49EF-B384-4542C265BCCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F844FA9D-2D04-49EF-B384-4542C265BCCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F844FA9D-2D04-49EF-B384-4542C265BCCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F844FA9D-2D04-49EF-B384-4542C265BCCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +116,7 @@ Global
 		{B6C4875C-CAEE-496B-8F0E-165EEB40A4BC} = {FC2180A0-7131-4127-8B9A-4A853C2E69C1}
 		{0ACA60B5-F0B9-41F7-A26C-C485725A03A4} = {1C716F4C-B813-4BD0-9FD3-EBEE3C3D6ABA}
 		{79330A9A-537B-4405-B267-0B6949DEEC1E} = {E4B4A9FC-4526-473B-902F-1995FB93E7FE}
+		{F844FA9D-2D04-49EF-B384-4542C265BCCC} = {3A11B6B2-8668-4733-BC26-EB320317A5DD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DAFDB4D8-3DF7-422E-8B26-87CE27E82AED}
