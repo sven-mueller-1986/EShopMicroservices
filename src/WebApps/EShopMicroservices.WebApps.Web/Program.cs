@@ -3,14 +3,25 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+var apiBaseAddress = builder.Configuration["ApiSettings:GatewayAddress"];
+ArgumentException.ThrowIfNullOrWhiteSpace(apiBaseAddress, "ApiSettings:GatewayAddress");
+
 builder.Services.AddRefitClient<ICatalogService>()
     .ConfigureHttpClient(config =>
     {
-        var baseAddress = builder.Configuration["ApiSettings:GatewayAddress"];
+        config.BaseAddress = new Uri(apiBaseAddress);
+    });
 
-        ArgumentException.ThrowIfNullOrWhiteSpace(baseAddress, "ApiSettings:GatewayAddress");
+builder.Services.AddRefitClient<IBasketService>()
+    .ConfigureHttpClient(config =>
+    {
+        config.BaseAddress = new Uri(apiBaseAddress);
+    });
 
-        config.BaseAddress = new Uri(baseAddress);
+builder.Services.AddRefitClient<IOrderingService>()
+    .ConfigureHttpClient(config =>
+    {
+        config.BaseAddress = new Uri(apiBaseAddress);
     });
 
 var app = builder.Build();

@@ -13,4 +13,26 @@ public interface IBasketService
 
     [Post("/basket-service/basket/checkout")]
     Task<CheckoutBasketResponse> CheckoutBasket([Body(BodySerializationMethod.Serialized)]  CheckoutBasketRequest request);
+
+    public async Task<ShoppingCartModel> LoadUserBasket()
+    {
+        var userName = "Heiko";
+        ShoppingCartModel basket;
+
+        try
+        {
+            var getBasketResponse = await GetBasket(userName);
+            basket = getBasketResponse.Cart;
+        }
+        catch (Exception)
+        {
+            basket = new ShoppingCartModel
+            {
+                UserName = userName,
+                Items = new List<ShoppingCartItemModel>()
+            };
+        }
+
+        return basket;
+    }
 }

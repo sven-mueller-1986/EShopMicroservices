@@ -37,11 +37,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShopMicroservices.Building
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways", "{E4B4A9FC-4526-473B-902F-1995FB93E7FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopMicroservices.ApiGateways.Web", "ApiGateways\EShopMicroservices.ApiGateways.Web\EShopMicroservices.ApiGateways.Web.csproj", "{79330A9A-537B-4405-B267-0B6949DEEC1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShopMicroservices.ApiGateways.Web", "ApiGateways\EShopMicroservices.ApiGateways.Web\EShopMicroservices.ApiGateways.Web.csproj", "{79330A9A-537B-4405-B267-0B6949DEEC1E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApps", "WebApps", "{3A11B6B2-8668-4733-BC26-EB320317A5DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopMicroservices.WebApps.Web", "WebApps\EShopMicroservices.WebApps.Web\EShopMicroservices.WebApps.Web.csproj", "{F844FA9D-2D04-49EF-B384-4542C265BCCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShopMicroservices.WebApps.Web", "WebApps\EShopMicroservices.WebApps.Web\EShopMicroservices.WebApps.Web.csproj", "{F844FA9D-2D04-49EF-B384-4542C265BCCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

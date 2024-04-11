@@ -1,6 +1,6 @@
 ﻿namespace EShopMicroservices.WebApps.Web.Models.Ordering;
 
-public class PaymentModel
+public record PaymentModel
 (
     string CardName,
     string CardNumber,

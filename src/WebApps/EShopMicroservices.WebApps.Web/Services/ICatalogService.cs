@@ -6,7 +6,7 @@ public interface ICatalogService
     Task<CreateProductResponse> CreateProduct([Body(BodySerializationMethod.Serialized)] CreateProductRequest request);
 
     [Get("/catalog-service/products?pageNumber={pageNumber}&pageSize={pageSize}")]
-    Task<GetProductsResponse> GetProducts(int pageNumber = 0, int pageSize = 10);
+    Task<GetProductsResponse> GetProducts(int pageNumber = 1, int pageSize = 10);
 
     [Get("/catalog-service/products/{id}")]
     Task<GetProductByIdResponse> GetProductById(Guid id);
