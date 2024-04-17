@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\BuildingBlocks\EShopMicroservices.BuildingBlocks.Logging\EShopMicroservices.BuildingBlocks.Logging.csproj" />
     <ProjectReference Include="..\..\BuildingBlocks\EShopMicroservices.BuildingBlocks\EShopMicroservices.BuildingBlocks.csproj" />
   </ItemGroup>
 

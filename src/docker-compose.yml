@@ -61,10 +61,24 @@ services:
  MessageBroker:
   image: rabbitmq:management
 
+ ElasticSearch:
+  image: elasticsearch:${ELASTICSEARCH_VERSION}
+
+ Kibana:
+  image: kibana:${ELASTICSEARCH_VERSION}
+
+ # Logstash:
+ #  image: logstash:${ELASTICSEARCH_VERSION}
+
 
 volumes:
  postgres_catalog:
  postgres_basket:
+ certs:
+ elasticsearch_data:
+ kibana_data:
+ logstash_data:
+
 
 
 

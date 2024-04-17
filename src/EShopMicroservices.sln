@@ -43,6 +43,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApps", "WebApps", "{3A11
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShopMicroservices.WebApps.Web", "WebApps\EShopMicroservices.WebApps.Web\EShopMicroservices.WebApps.Web.csproj", "{F844FA9D-2D04-49EF-B384-4542C265BCCC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopMicroservices.BuildingBlocks.Logging", "BuildingBlocks\EShopMicroservices.BuildingBlocks.Logging\EShopMicroservices.BuildingBlocks.Logging.csproj", "{30A032F7-6932-4F11-A679-BCAD5D27049F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,10 @@ Global
 		{F844FA9D-2D04-49EF-B384-4542C265BCCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F844FA9D-2D04-49EF-B384-4542C265BCCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F844FA9D-2D04-49EF-B384-4542C265BCCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30A032F7-6932-4F11-A679-BCAD5D27049F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30A032F7-6932-4F11-A679-BCAD5D27049F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30A032F7-6932-4F11-A679-BCAD5D27049F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30A032F7-6932-4F11-A679-BCAD5D27049F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +123,7 @@ Global
 		{0ACA60B5-F0B9-41F7-A26C-C485725A03A4} = {1C716F4C-B813-4BD0-9FD3-EBEE3C3D6ABA}
 		{79330A9A-537B-4405-B267-0B6949DEEC1E} = {E4B4A9FC-4526-473B-902F-1995FB93E7FE}
 		{F844FA9D-2D04-49EF-B384-4542C265BCCC} = {3A11B6B2-8668-4733-BC26-EB320317A5DD}
+		{30A032F7-6932-4F11-A679-BCAD5D27049F} = {1C716F4C-B813-4BD0-9FD3-EBEE3C3D6ABA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DAFDB4D8-3DF7-422E-8B26-87CE27E82AED}

@@ -1,6 +1,12 @@
+using Serilog;
+using EShopMicroservices.BuildingBlocks.Logging;
+using EShopMicroservices.WebApps.Web.Handler;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.AddSeriLogger();
+
 builder.Services.AddRazorPages();
 
 var apiBaseAddress = builder.Configuration["ApiSettings:GatewayAddress"];
@@ -10,19 +16,22 @@ builder.Services.AddRefitClient<ICatalogService>()
     .ConfigureHttpClient(config =>
     {
         config.BaseAddress = new Uri(apiBaseAddress);
-    });
+    })
+    .AddHttpMessageHandler<HttpLoggingHandler>();
 
 builder.Services.AddRefitClient<IBasketService>()
     .ConfigureHttpClient(config =>
     {
         config.BaseAddress = new Uri(apiBaseAddress);
-    });
+    })
+    .AddHttpMessageHandler<HttpLoggingHandler>();
 
 builder.Services.AddRefitClient<IOrderingService>()
     .ConfigureHttpClient(config =>
     {
         config.BaseAddress = new Uri(apiBaseAddress);
-    });
+    })
+    .AddHttpMessageHandler<HttpLoggingHandler>();
 
 var app = builder.Build();
 
@@ -40,6 +49,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSerilogRequestLogging();
 
 app.MapRazorPages();
 
