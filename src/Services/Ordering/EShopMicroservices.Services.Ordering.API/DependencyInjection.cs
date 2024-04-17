@@ -2,6 +2,7 @@
 using EShopMicroservices.BuildingBlocks.Extensions;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Serilog;
 
 namespace EShopMicroservices.Services.Ordering.API;
 
@@ -21,8 +22,6 @@ public static class DependencyInjection
 
     public static WebApplication UseApiServices(this WebApplication app)
     {
-        app.MapCarter();
-
         app.UseExceptionHandler(config => { });
 
         app.UseHealthChecks("/health",
@@ -30,6 +29,10 @@ public static class DependencyInjection
             {
                 ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
             });
+
+        app.UseSerilogRequestLogging();
+
+        app.MapCarter();
 
         return app;
     }

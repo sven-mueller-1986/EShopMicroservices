@@ -1,6 +1,6 @@
 using Serilog;
 using EShopMicroservices.BuildingBlocks.Logging;
-using EShopMicroservices.WebApps.Web.Handler;
+using EShopMicroservices.BuildingBlocks.Logging.Handler;
 
 var builder = WebApplication.CreateBuilder(args);
 

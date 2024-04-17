@@ -1,6 +1,12 @@
 using EShopMicroservices.BuildingBlocks.Extensions;
+using EShopMicroservices.BuildingBlocks.Logging;
+using EShopMicroservices.BuildingBlocks.Logging.Behaviors;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Serilog integration defined in BuildingBlocks project
+builder.AddSeriLogger();
 
 // Add services to DI.
 var assembly = typeof(Program).Assembly;
@@ -42,6 +48,16 @@ var app = builder.Build();
 
 // Configure the HTTPS request pipeline.
 
+// Configure Application Health Checks
+app.UseHealthChecks("/health",
+    new HealthCheckOptions
+    {
+        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+    });
+
+// Serilog after healthchecks to exclude health checks from logging
+app.UseSerilogRequestLogging();
+
 // Endpoint Mapping
 app.MapCarter();
 
@@ -72,12 +88,5 @@ app.UseExceptionHandler(config => { });
 //        await context.Response.WriteAsJsonAsync(problemDetails);
 //    });
 //});
-
-// Configure Application Health Checks
-app.UseHealthChecks("/health", 
-    new HealthCheckOptions
-    {
-        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-    });
 
 app.Run();

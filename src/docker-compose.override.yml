@@ -23,6 +23,7 @@ services:
             - ASPNETCORE_HTTP_PORTS=8080
             - ASPNETCORE_HTTPS_PORTS=8081
             - ConnectionStrings__Database=Server=CatalogDB;Port=5432;Database=CatalogDB;User Id=postgres;Password=postgres;Include Error Detail=true
+            - ElasticConfiguration__Uri=http://ElasticSearch:9200
         depends_on:
             - CatalogDB
         ports:
@@ -57,6 +58,7 @@ services:
           - MessageBroker__Host=amqp://ecomerce-mq:5672
           - MessageBroker__UserName=guest
           - MessageBroker__Password=guest
+          - ElasticConfiguration__Uri=http://ElasticSearch:9200
         depends_on:
             - BasketDB
             - RedisCache
@@ -81,6 +83,7 @@ services:
           - Kestrel__Endpoints__Http__Protocols=Http1AndHttp2"      
           - Kestrel__Endpoints__gRPC__Url=http://DiscountgRPC:8080
           - Kestrel__Endpoints__gRPC__Protocols=Http2
+          - ElasticConfiguration__Uri=http://ElasticSearch:9200
         ports:
           - "6002:8080"
           - "6062:8081"
@@ -109,6 +112,7 @@ services:
           - MessageBroker__UserName=guest
           - MessageBroker__Password=guest
           - FeatureManagement__OrderFullfilment=false
+          - ElasticConfiguration__Uri=http://ElasticSearch:9200
         depends_on:
             - OrderDB
             - MessageBroker
@@ -126,6 +130,7 @@ services:
           - ASPNETCORE_ENVIRONMENT=Development
           - ASPNETCORE_HTTP_PORTS=8080
           - ASPNETCORE_HTTPS_PORTS=8081
+          - ElasticConfiguration__Uri=http://ElasticSearch:9200
         depends_on:
             - CatalogAPI 
             - BasketAPI 
@@ -144,6 +149,7 @@ services:
           - ASPNETCORE_HTTP_PORTS=8080
           - ASPNETCORE_HTTPS_PORTS=8081
           - ApiSettings__GatewayAddress=http://ApiGatewayWeb:8080
+          - ElasticConfiguration__Uri=http://ElasticSearch:9200
         ports:
           - "6005:8080"
           - "6065:8081"
@@ -198,29 +204,4 @@ services:
        environment:
          - ELASTICSEARCH_HOSTS=http://ElasticSearch:9200
        mem_limit: ${KB_MEM_LIMIT}
-
-    # Logstash:
-    #    container_name: Logstash
-    #    depends_on:
-    #      ElasticSearch01:
-    #        condition: service_healthy
-    #      Kibana:
-    #        condition: service_healthy
-    #    labels:
-    #      co.elastic.logs/module: logstash
-    #    user: root
-    #    volumes:
-    #      - logstash_data:/usr/share/logstash/data
-    #      - certs:/usr/share/logstash/certs
-    #      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro
-    #    environment:
-    #      - NODE_NAME="logstash"
-    #      - xpack.monitoring.enabled=false
-    #      - ELASTIC_USER=elastic
-    #      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
-    #      - ELASTIC_HOSTS=https://ElasticSearch01:9200
-    #    command: logstash -f /usr/share/logstash/pipeline/logstash.conf
-    #    ports:
-    #      - "5044:5044/udp"
-    #    mem_limit: ${LS_MEM_LIMIT}
     

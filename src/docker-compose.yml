@@ -67,9 +67,6 @@ services:
  Kibana:
   image: kibana:${ELASTICSEARCH_VERSION}
 
- # Logstash:
- #  image: logstash:${ELASTICSEARCH_VERSION}
-
 
 volumes:
  postgres_catalog:

@@ -1,4 +1,5 @@
-﻿using EShopMicroservices.BuildingBlocks.Messaging.MassTransit;
+﻿using EShopMicroservices.BuildingBlocks.Logging.Behaviors;
+using EShopMicroservices.BuildingBlocks.Messaging.MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.FeatureManagement;

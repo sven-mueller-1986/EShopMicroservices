@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
-namespace EShopMicroservices.BuildingBlocks.Behaviors;
+namespace EShopMicroservices.BuildingBlocks.Logging.Behaviors;
 
 public class LoggingBehavior<TRequest, TResponse>(ILogger<LoggingBehavior<TRequest, TResponse>> logger)
     : IPipelineBehavior<TRequest, TResponse>
@@ -20,7 +20,7 @@ public class LoggingBehavior<TRequest, TResponse>(ILogger<LoggingBehavior<TReque
 
         timer.Stop();
 
-        if(timer.Elapsed.Seconds > 3)
+        if (timer.Elapsed.Seconds > 3)
         {
             logger.LogWarning("[PERFORMANCE] The request {Request} took {Time} ms.",
                 typeof(TRequest).Name, timer.Elapsed.Milliseconds);

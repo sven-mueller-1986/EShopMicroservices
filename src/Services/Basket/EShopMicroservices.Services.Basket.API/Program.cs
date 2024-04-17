@@ -1,8 +1,13 @@
 using Discount.Grpc;
 using EShopMicroservices.BuildingBlocks.Extensions;
+using EShopMicroservices.BuildingBlocks.Logging;
+using EShopMicroservices.BuildingBlocks.Logging.Behaviors;
 using EShopMicroservices.BuildingBlocks.Messaging.MassTransit;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.AddSeriLogger();
 
 // Add services to DI.
 var assembly = typeof(Program).Assembly;
@@ -73,9 +78,6 @@ var app = builder.Build();
 
 // Configure the HTTPS request pipeline.
 
-// Endpoint Mapping
-app.MapCarter();
-
 // Global exception handling with IExceptionHandler implementation
 app.UseExceptionHandler(config => { });
 
@@ -85,5 +87,10 @@ app.UseHealthChecks("/health",
     {
         ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
     });
+
+app.UseSerilogRequestLogging();
+
+// Endpoint Mapping
+app.MapCarter();
 
 app.Run();
