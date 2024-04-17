@@ -1,6 +1,9 @@
 using Serilog;
 using EShopMicroservices.BuildingBlocks.Logging;
 using EShopMicroservices.BuildingBlocks.Logging.Handler;
+using EShopMicroservices.WebApps.Web.Policies;
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,21 +20,30 @@ builder.Services.AddRefitClient<ICatalogService>()
     {
         config.BaseAddress = new Uri(apiBaseAddress);
     })
-    .AddHttpMessageHandler<HttpLoggingHandler>();
+    .AddHttpMessageHandler<HttpLoggingHandler>()
+    .AddPolicyHandler(RequestPolicies.RetryPolicy)
+    .AddPolicyHandler(RequestPolicies.CircuitBreakerPolicy);
 
 builder.Services.AddRefitClient<IBasketService>()
     .ConfigureHttpClient(config =>
     {
         config.BaseAddress = new Uri(apiBaseAddress);
     })
-    .AddHttpMessageHandler<HttpLoggingHandler>();
+    .AddHttpMessageHandler<HttpLoggingHandler>()
+    .AddPolicyHandler(RequestPolicies.RetryPolicy)
+    .AddPolicyHandler(RequestPolicies.CircuitBreakerPolicy);
 
 builder.Services.AddRefitClient<IOrderingService>()
     .ConfigureHttpClient(config =>
     {
         config.BaseAddress = new Uri(apiBaseAddress);
     })
-    .AddHttpMessageHandler<HttpLoggingHandler>();
+    .AddHttpMessageHandler<HttpLoggingHandler>()
+    .AddPolicyHandler(RequestPolicies.RetryPolicy)
+    .AddPolicyHandler(RequestPolicies.CircuitBreakerPolicy);
+
+builder.Services.AddHealthChecks()
+    .AddUrlGroup(new Uri($"{apiBaseAddress}/health"), "API Gateway");
 
 var app = builder.Build();
 
@@ -45,6 +57,13 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseHealthChecks("/health",
+    new HealthCheckOptions
+    {
+        Predicate = _ => true,
+        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+    });
 
 app.UseRouting();
 

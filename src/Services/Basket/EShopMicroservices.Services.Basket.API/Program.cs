@@ -85,6 +85,7 @@ app.UseExceptionHandler(config => { });
 app.UseHealthChecks("/health",
     new HealthCheckOptions
     {
+        Predicate = _ => true,
         ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
     });
 

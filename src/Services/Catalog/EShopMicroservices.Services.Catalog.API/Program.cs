@@ -52,6 +52,7 @@ var app = builder.Build();
 app.UseHealthChecks("/health",
     new HealthCheckOptions
     {
+        Predicate = _ => true,
         ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
     });
 

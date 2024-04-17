@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.DependencyInjection;
+using Polly;
+using Serilog;
 
 namespace EShopMicroservices.Services.Ordering.Infrastructure.Data.Extensions;
 
@@ -7,13 +10,26 @@ public static class DatabaseExtensions
 {
     public static async Task InitialiseDatabaseAsync(this WebApplication app)
     {
-        using var scope = app.Services.CreateScope();
+        var policy = Policy
+            .Handle<SqlException>()
+            .WaitAndRetryAsync(
+                retryCount: 5,
+                sleepDurationProvider: retryAttempt => TimeSpan.FromMilliseconds(1000) * retryAttempt,
+                onRetry: (exception, retryTime, context) =>
+                {
+                    Log.Error("Retry {RetryTime} of {Policy} at {Operation}, due to {Exception}.", retryTime, context.PolicyKey, context.OperationKey, exception);
+                });
 
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        await policy.ExecuteAsync(async () =>
+        {
+            using var scope = app.Services.CreateScope();
 
-        await context.Database.MigrateAsync();
+            var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-        await SeedAsync(context);
+            await context.Database.MigrateAsync();
+
+            await SeedAsync(context);
+        });        
     }
 
     private static async Task SeedAsync(ApplicationDbContext context)

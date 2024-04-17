@@ -27,6 +27,7 @@ public static class DependencyInjection
         app.UseHealthChecks("/health",
             new HealthCheckOptions
             {
+                Predicate = _ => true,
                 ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
             });
 
