@@ -10,7 +10,6 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["WebApps/EShopMicroservices.WebApps.Monitoring/EShopMicroservices.WebApps.Monitoring.csproj", "WebApps/EShopMicroservices.WebApps.Monitoring/"]
-COPY ["BuildingBlocks/EShopMicroservices.BuildingBlocks/EShopMicroservices.BuildingBlocks.csproj", "BuildingBlocks/EShopMicroservices.BuildingBlocks/"]
 RUN dotnet restore "./WebApps/EShopMicroservices.WebApps.Monitoring/EShopMicroservices.WebApps.Monitoring.csproj"
 COPY . .
 WORKDIR "/src/WebApps/EShopMicroservices.WebApps.Monitoring"

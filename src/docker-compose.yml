@@ -54,6 +54,12 @@ services:
       context: .
       dockerfile: WebApps/EShopMicroservices.WebApps.Web/Dockerfile
 
+ WebAppMonitoring:
+    image: ${DOCKER_REGISTRY-}webappmonitoring
+    build:
+      context: .
+      dockerfile: WebApps/EShopMicroservices.WebApps.Monitoring/Dockerfile
+
  #Shared
  RedisCache:
   image: redis
@@ -75,6 +81,7 @@ volumes:
  elasticsearch_data:
  kibana_data:
  logstash_data:
+
 
 
 
